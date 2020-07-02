@@ -1,27 +1,23 @@
 package com.gauravtak.scheduler_assignment.views
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProviders
 import com.gauravtak.scheduler_assignment.holders.NoticesAdapter
 import com.gauravtak.scheduler_assignment.utils_classes.TimeUtilsHelper.Companion.getTodayDate
 import com.gauravtak.scheduler_assignment.viewmodels.ToolbarViewModel
 import com.noticeboardapp.R
 import com.noticeboardapp.databinding.ActivityNoticesListingBinding
-import com.noticeboardapp.db_storage.DatabaseHandler
 import com.noticeboardapp.model_classes.NoticeDataBean
 import com.noticeboardapp.utils_classes.CustomProgressDialog
-import java.util.*
 import kotlin.collections.ArrayList
 
 class NoticesListingActivity : AppCompatActivity() {
     var activityNoticesListingBinding:ActivityNoticesListingBinding? = null
     private val mActivity: AppCompatActivity = this
     var dataBeanArrayList = ArrayList<NoticeDataBean>()
-    private var meetingListAdapter: NoticesAdapter? = null
+    private var noticesListAdapter: NoticesAdapter? = null
     private var toolbarViewModel:ToolbarViewModel? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,8 +34,8 @@ class NoticesListingActivity : AppCompatActivity() {
      }
 
     private fun setUpRecyclerView() {
-        meetingListAdapter = NoticesAdapter(mActivity, dataBeanArrayList)
-        activityNoticesListingBinding!!.recyclerViewMeetings.adapter = meetingListAdapter
+        noticesListAdapter = NoticesAdapter(mActivity, dataBeanArrayList)
+        activityNoticesListingBinding!!.recyclerViewMeetings.adapter = noticesListAdapter
 
     }
 
@@ -50,7 +46,7 @@ class NoticesListingActivity : AppCompatActivity() {
 
             toolbarViewModel?.getTodaysNoticesApiCall(getTodayDate());
         //because of this, We can reduce the memory leak issues;
-           
+
     }
 
     private fun setToolbarInit() {
@@ -60,7 +56,7 @@ class NoticesListingActivity : AppCompatActivity() {
         toolbarViewModel?.getTodaysNoticesApiCall(getTodayDate())
        toolbarViewModel?.getNoticesList!!.observe(this, androidx.lifecycle.Observer<Any?> {
             obj ->
-           meetingListAdapter!!.setData(obj as ArrayList<NoticeDataBean>)
+           noticesListAdapter!!.setData(obj as ArrayList<NoticeDataBean>)
            CustomProgressDialog.hideprogressbar()
         })
 
