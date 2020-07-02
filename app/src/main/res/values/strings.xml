@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">NoticeBoard</string>
+    <string name="schedule_company_meeting">Schedule Company Meeting</string>
+    <string name="submit">Submit</string>
+    <string name="back">Back</string>
+    <string name="notice_details">Notice Details</string>
+    <string name="meeting_date">Notice Date</string>
+    <string name="description">Description</string>
+    <string name="end_time">End Time</string>
+    <string name="start_time">Start Time</string>
+    <string name="please_select_meeting_date">Please select Meeting Date</string>
+    <string name="please_select_meeting_start_time">Please select meeting start time</string>
+    <string name="please_select_meeting_end_time">Please select meeting end time</string>
+    <string name="slot_not_available">Slot not available</string>
+    <string name="slot_available">Slot available</string>
+    <string name="please_select_correct_start_end_time">Please select correct start and end time</string>
+    <string name="please_enter_description">Please enter description</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

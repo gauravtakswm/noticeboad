@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View"/>
+         <variable
+            name="toolbarViewModel"
+            type="com.gauravtak.scheduler_assignment.viewmodels.ToolbarViewModel" />
+    </data>
+<androidx.appcompat.widget.Toolbar
+    android:id="@+id/toolbar"
+    android:title="@{toolbarViewModel.centerTitleValue}"
+
+    android:layout_width="match_parent"
+    android:background="@color/colorPrimary"
+    android:layout_height="?attr/actionBarSize"
+    app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+    >
+
+</androidx.appcompat.widget.Toolbar>
+</layout>
