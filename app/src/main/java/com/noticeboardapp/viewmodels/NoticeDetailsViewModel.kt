@@ -7,8 +7,11 @@ import android.net.Uri
 import android.view.View
 import androidx.databinding.ObservableField
 import androidx.lifecycle.ViewModel
+import com.gauravtak.scheduler_assignment.NoticeBoardApp
 import com.noticeboardapp.R
+import com.noticeboardapp.db_storage.DatabaseHandler
 import com.noticeboardapp.model_classes.NoticeDataBean
+import com.noticeboardapp.utils_classes.SingleLiveEvent
 
 
 public class NoticeDetailsViewModel : ViewModel() {
@@ -24,6 +27,7 @@ public class NoticeDetailsViewModel : ViewModel() {
     val picUrl: ObservableField<String> = ObservableField<String>()
     val webUrl: ObservableField<String> = ObservableField<String>()
     var noticeDataBean:NoticeDataBean?=null
+    var getNoticesDetails: SingleLiveEvent<NoticeDataBean> = SingleLiveEvent<NoticeDataBean>();
 
 
     public fun initValues(mContext: Context,dataBean: NoticeDataBean) {
@@ -64,6 +68,10 @@ public class NoticeDetailsViewModel : ViewModel() {
             }
 
         }
+    public fun getNoticesinDetailsApiCall(value: Int) {
+         getNoticesDetails?.value = DatabaseHandler(NoticeBoardApp.mContext).getNoticeDataBean(value);
+
+    }
 
 
 }
